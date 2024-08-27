@@ -83,7 +83,7 @@ export const PatientForm = () => {
 
         />
 
-        <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
+        <SubmitButton isLoading={isLoading}>Empezar</SubmitButton>
       </form>
     </Form>
   );
