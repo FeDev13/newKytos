@@ -140,7 +140,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               fieldType={FormFieldType.PHONE_INPUT}
               control={form.control}
               name="phone"
-              label="numero de telefono"
+              label="Numero de telefono"
               placeholder="(223) 123-4567"
             />
           </div>
@@ -308,7 +308,7 @@ const RegisterForm = ({ user }: { user: User }) => {
 
         <section className="space-y-6">
           <div className="mb-9 space-y-1">
-            <h2 className="sub-header">Identification and Verfication</h2>
+            <h2 className="sub-header">Identificacion y verifiacion</h2>
           </div>
 
           <CustomFormField

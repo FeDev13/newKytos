@@ -119,13 +119,13 @@ export const AppointmentForm = ({
   let buttonLabel;
   switch (type) {
     case "cancel":
-      buttonLabel = "Cancel Appointment";
+      buttonLabel = "Cancelar turno";
       break;
     case "schedule":
-      buttonLabel = "Schedule Appointment";
+      buttonLabel = "Agendar turno";
       break;
     default:
-      buttonLabel = "Submit Apppointment";
+      buttonLabel = "Solicitar turno";
   }
 
   return (
@@ -146,7 +146,7 @@ export const AppointmentForm = ({
               fieldType={FormFieldType.SELECT}
               control={form.control}
               name="primaryPhysician"
-              label="Doctor"
+              label="Profesional"
               placeholder="Seleccione profesional"
             >
               {Doctors.map((doctor, i) => (
