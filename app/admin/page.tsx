@@ -14,7 +14,7 @@ const AdminPage = async () => {
       <header className="admin-header">
         <Link href="/" className="cursor-pointer">
           <Image
-            src="/assets/icons/logo-full.svg"
+            src="/assets/images/Logo kytos_page-0001.jpg"
             height={32}
             width={162}
             alt="logo"

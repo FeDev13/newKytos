@@ -171,7 +171,7 @@ export const AppointmentForm = ({
               name="schedule"
               label="Fecha del turno"
               showTimeSelect
-              dateFormat="MM/dd/yyyy  -  h:mm aa"
+              dateFormat="dd/MM/yyyy  -  h:mm aa"
             />
 
             <div
@@ -190,8 +190,8 @@ export const AppointmentForm = ({
                 fieldType={FormFieldType.TEXTAREA}
                 control={form.control}
                 name="note"
-                label="Comentarios"
-                placeholder="Prefiero turno de tarde de ser posible"
+                label="Comentarios (opcional)"
+                placeholder="Ej: Prefiero turno de tarde de ser posible"
                 disabled={type === "schedule"}
               />
             </div>

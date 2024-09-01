@@ -22,7 +22,7 @@ const RequestSuccess = async ({
       <div className="success-img">
         <Link href="/">
           <Image
-            src="/assets/icons/logo-full.svg"
+           src="/assets/images/Logo kytos_page-0001.jpg"
             height={1000}
             width={1000}
             alt="logo"
@@ -38,14 +38,13 @@ const RequestSuccess = async ({
             alt="success"
           />
           <h2 className="header mb-6 max-w-[600px] text-center">
-            Your <span className="text-green-500">appointment request</span> has
-            been successfully submitted!
+            Su <span className="text-green-500">solicitud de turno</span> ha sido enviada!
           </h2>
-          <p>We&apos;ll be in touch shortly to confirm.</p>
+          <p>Nos pondremos en contacto en breve para confirmar.</p>
         </section>
 
         <section className="request-details">
-          <p>Requested appointment details: </p>
+          <p>Detalles de su turno: </p>
           <div className="flex items-center gap-3">
             <Image
               src={doctor?.image!}
@@ -54,7 +53,7 @@ const RequestSuccess = async ({
               height={100}
               className="size-6"
             />
-            <p className="whitespace-nowrap">Dr. {doctor?.name}</p>
+            <p className="whitespace-nowrap">{doctor?.name}</p>
           </div>
           <div className="flex gap-2">
             <Image
@@ -69,11 +68,11 @@ const RequestSuccess = async ({
 
         <Button variant="outline" className="shad-primary-btn" asChild>
           <Link href={`/patients/${userId}/new-appointment`}>
-            New Appointment
+            Solicitar nuevo turno
           </Link>
         </Button>
 
-        <p className="copyright">© 2024 CarePluse</p>
+        <p className="copyright">© 2024 Kytos</p>
       </div>
     </div>
   );
