@@ -3,52 +3,52 @@ import { z } from "zod";
 export const UserFormValidation = z.object({
   name: z
     .string()
-    .min(2, "Name must be at least 2 characters")
-    .max(50, "Name must be at most 50 characters"),
-  email: z.string().email("Invalid email address"),
+    .min(2, "Nombre debe contener al menos 2 letras")
+    .max(50, "Nombre debe contener menos de 50 letras"),
+  email: z.string().email("Formato de email inválido"),
   phone: z
     .string()
-    .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
+    .refine((phone) => /^\+\d{10,15}$/.test(phone), "Error en el numero de teléfono"),
 });
 
 export const PatientFormValidation = z.object({
   name: z
     .string()
-    .min(2, "Name must be at least 2 characters")
-    .max(50, "Name must be at most 50 characters"),
-  email: z.string().email("Invalid email address"),
+    .min(2, "Nombre debe contener al menos 2 letras")
+    .max(50, "Nombre debe contener menos de 50 letras"),
+  email: z.string().email("Formato de email inválido"),
   phone: z
     .string()
-    .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
+    .refine((phone) => /^\+\d{10,15}$/.test(phone), "Error en el numero de teléfono"),
   birthDate: z.coerce.date(),
   gender: z.enum(["hombre", "mujer", "otro"]),
   address: z
     .string()
-    .min(5, "Address must be at least 5 characters")
-    .max(500, "Address must be at most 500 characters"),
+    .min(5, "La dirección debe tener al menos 10 caracteres")
+    .max(500, "La dirección debe tener menos de 500 caracteres"),
   occupation: z
     .string()
-    .min(2, "Occupation must be at least 2 characters")
-    .max(500, "Occupation must be at most 500 characters"),
+    .min(2, "Ocupación debe tener al menos 2 caracteres")
+    .max(500, "Ocupación debe tener menos de 500 caracteres"),
   emergencyContactName: z
     .string()
-    .min(2, "Contact name must be at least 2 characters")
-    .max(50, "Contact name must be at most 50 characters"),
+    .min(2, "Nombre de contacto debe tener al menos 2 caracteres")
+    .max(50, "Nombre de contacto debe tener menos de 500 caracteres"),
   emergencyContactNumber: z
     .string()
     .refine(
       (emergencyContactNumber) => /^\+\d{10,15}$/.test(emergencyContactNumber),
-      "Invalid phone number"
+      "Error en el numero de teléfono"
     ),
   primaryPhysician: z.string().min(2, "Debe seleccionar un profesional"),
   insuranceProvider: z
     .string()
-    .min(2, "Insurance name must be at least 2 characters")
-    .max(50, "Insurance name must be at most 50 characters"),
+    .min(2, "Nombre de prestador debe tener al menos 2 caracteres")
+    .max(50, "Nombre de prestador debe tener menos de 500 caracteres"),
   insurancePolicyNumber: z
     .string()
-    .min(2, "Policy number must be at least 2 characters")
-    .max(50, "Policy number must be at most 50 characters"),
+    .min(2, "Número de afiliado debe tener al menos 2 caracteres")
+    .max(50, "Número de afiliado debe tener menos de 50 caracteres"),
   allergies: z.string().optional(),
   currentMedication: z.string().optional(),
   familyMedicalHistory: z.string().optional(),
@@ -60,19 +60,19 @@ export const PatientFormValidation = z.object({
     .boolean()
     .default(false)
     .refine((value) => value === true, {
-      message: "You must consent to treatment in order to proceed",
+      message: "Debe consentir el tratamiento para proceder",
     }),
   disclosureConsent: z
     .boolean()
     .default(false)
     .refine((value) => value === true, {
-      message: "You must consent to disclosure in order to proceed",
+      message: "Debe consentir brindar su información personal para proceder",
     }),
   privacyConsent: z
     .boolean()
     .default(false)
     .refine((value) => value === true, {
-      message: "You must consent to privacy in order to proceed",
+      message: "Debe consentir la política de privacidad para proceder",
     }),
 });
 
