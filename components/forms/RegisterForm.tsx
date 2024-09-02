@@ -82,7 +82,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         identificationDocument: values.identificationDocument
           ? formData
           : undefined,
-        privacyConsent: values.privacyConsent,
+        
       };
 
       const newPatient = await registerPatient(patient);
@@ -105,12 +105,12 @@ const RegisterForm = ({ user }: { user: User }) => {
       >
         <section className="space-y-4">
           <h1 className="header">Bienvenido 👋</h1>
-          <p className="text-dark-700">Contanos un poco mas .</p>
+          <p className="text-dark-700">Contanos un poco más .</p>
         </section>
 
         <section className="space-y-6">
           <div className="mb-9 space-y-1">
-            <h2 className="sub-header">Informacion personal</h2>
+            <h2 className="sub-header">Información personal</h2>
           </div>
 
           {/* NAME */}
@@ -130,7 +130,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               fieldType={FormFieldType.INPUT}
               control={form.control}
               name="email"
-              label="Email"
+              label="Email*"
               placeholder="johndoe@gmail.com"
               iconSrc="/assets/icons/email.svg"
               iconAlt="email"
@@ -140,7 +140,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               fieldType={FormFieldType.PHONE_INPUT}
               control={form.control}
               name="phone"
-              label="Numero de telefono"
+              label="Numero de telefono*"
               placeholder="(223) 123-4567"
             />
           </div>
@@ -151,14 +151,14 @@ const RegisterForm = ({ user }: { user: User }) => {
               fieldType={FormFieldType.DATE_PICKER}
               control={form.control}
               name="birthDate"
-              label="Fecha de nacimiento"
+              label="Fecha de nacimiento*"
             />
 
             <CustomFormField
               fieldType={FormFieldType.SKELETON}
               control={form.control}
               name="gender"
-              label="Genero"
+              label="Genero*"
               renderSkeleton={(field) => (
                 <FormControl>
                   <RadioGroup
@@ -186,7 +186,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               fieldType={FormFieldType.INPUT}
               control={form.control}
               name="address"
-              label="Direccion"
+              label="Direccion*"
               placeholder="Colon 123"
             />
 
@@ -194,7 +194,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               fieldType={FormFieldType.INPUT}
               control={form.control}
               name="occupation"
-              label="Ocupacion"
+              label="Ocupacion*"
               placeholder=" Estudiante"
             />
           </div>
@@ -205,7 +205,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               fieldType={FormFieldType.INPUT}
               control={form.control}
               name="emergencyContactName"
-              label="Nombre de contacto de emergencia"
+              label="Nombre de contacto de emergencia*"
               
             />
 
@@ -213,7 +213,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               fieldType={FormFieldType.PHONE_INPUT}
               control={form.control}
               name="emergencyContactNumber"
-              label="Numero de contacto de emergencia"
+              label="Numero de contacto de emergencia*"
               placeholder="(223) 123-4567"
             />
           </div>
@@ -229,7 +229,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.SELECT}
             control={form.control}
             name="primaryPhysician"
-            label="Profesional tratante"
+            label="Profesional a elegir/tratante*"
             placeholder="Seleccione el profesional"
           >
             {Doctors.map((doctor, i) => (
@@ -254,7 +254,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               fieldType={FormFieldType.INPUT}
               control={form.control}
               name="insuranceProvider"
-              label="Prestador medico"
+              label="Prestador médico*"
               placeholder="Medife"
             />
 
@@ -262,7 +262,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               fieldType={FormFieldType.INPUT}
               control={form.control}
               name="insurancePolicyNumber"
-              label="Numero de afiliado"
+              label="Número de afiliado*"
               
             />
           </div>
@@ -273,16 +273,16 @@ const RegisterForm = ({ user }: { user: User }) => {
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
               name="allergies"
-              label="Alergias (si hay)"
-              placeholder="Polen, nueces, penicilina"
+              label="Alergias (opcional)"
+              placeholder="Ej: Polen, nueces, penicilina"
             />
 
             <CustomFormField
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
               name="currentMedication"
-              label="Medicacion actual"
-              placeholder="Ibuprofeno "
+              label="Medicación actual(opcional)"
+              placeholder="Ej: Ibuprofeno "
             />
           </div>
 
@@ -292,30 +292,30 @@ const RegisterForm = ({ user }: { user: User }) => {
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
               name="familyMedicalHistory"
-              label=" Historia medica familiar (si fuera relevante)"
-              placeholder=" Padre con hipertension"
+              label=" Historia médica familiar (si fuera relevante/opcional )"
+              placeholder=" Ej: Padre con hipertensión"
             />
 
             <CustomFormField
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
               name="pastMedicalHistory"
-              label="Antecedentes medicos"
-              placeholder="Apendicectomia en 1994"
+              label="Antecedentes médicos (opcional)"
+              placeholder="Ej: Apendicectomia en 1994"
             />
           </div>
         </section>
 
         <section className="space-y-6">
           <div className="mb-9 space-y-1">
-            <h2 className="sub-header">Identificacion y verifiacion</h2>
+            <h2 className="sub-header">Identificación y verificación</h2>
           </div>
 
           <CustomFormField
             fieldType={FormFieldType.SELECT}
             control={form.control}
             name="identificationType"
-            label="Tipo de identificacion"
+            label="Tipo de identificación*"
             placeholder="Selecionar tipo"
           >
             {IdentificationTypes.map((type, i) => (
@@ -329,15 +329,15 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.INPUT}
             control={form.control}
             name="identificationNumber"
-            label="numero de identificacion/documento de identidad"
-            placeholder="32554478"
+            label="número de identificación/documento de identidad*"
+            placeholder="Ej: 32554478"
           />
 
           <CustomFormField
             fieldType={FormFieldType.SKELETON}
             control={form.control}
             name="identificationDocument"
-            label="Copia scaneada de documento de identidad"
+            label="Copia escaneada de documento de identidad"
             renderSkeleton={(field) => (
               <FormControl>
                 <FileUploader files={field.value} onChange={field.onChange} />
@@ -355,22 +355,17 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.CHECKBOX}
             control={form.control}
             name="treatmentConsent"
-            label="Consiento en recibir tratamiento medico."
+            label="Consiento en recibir tratamiento médico.*"
           />
 
           <CustomFormField
             fieldType={FormFieldType.CHECKBOX}
             control={form.control}
             name="disclosureConsent"
-            label="Consiento en brindar mi informacion personal exclusivamente para fines terapeuticos."
+            label="Consiento en brindar mi información personal exclusivamente para fines terapeuticos.*"
           />
 
-          <CustomFormField
-            fieldType={FormFieldType.CHECKBOX}
-            control={form.control}
-            name="privacyConsent"
-            label="He leido y acepto las condiciones de privacidad"
-          />
+          
         </section>
 
         <SubmitButton isLoading={isLoading}>Enviar y continuar</SubmitButton>

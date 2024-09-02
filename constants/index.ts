@@ -23,7 +23,7 @@ export const PatientFormDefaultValues = {
   identificationDocument: [],
   treatmentConsent: false,
   disclosureConsent: false,
-  privacyConsent: false,
+ 
 };
 
 export const IdentificationTypes = [
@@ -80,7 +80,7 @@ export const Doctors = [
 ];
 
 export const StatusIcon = {
-  scheduled: "/assets/icons/check.svg",
-  pending: "/assets/icons/pending.svg",
-  cancelled: "/assets/icons/cancelled.svg",
+  agendado: "/assets/icons/check.svg",
+  pendiente: "/assets/icons/pending.svg",
+  cancelado: "/assets/icons/cancelled.svg",
 };

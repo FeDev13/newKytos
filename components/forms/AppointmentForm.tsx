@@ -25,13 +25,13 @@ import { Form } from "../ui/form";
 export const AppointmentForm = ({
   userId,
   patientId,
-  type = "create",
+  type = "confirmar",
   appointment,
   setOpen,
 }: {
   userId: string;
   patientId: string;
-  type: "create" | "schedule" | "cancel";
+  type: "crear" | "confirmar" | "cancelar";
   appointment?: Appointment;
   setOpen?: Dispatch<SetStateAction<boolean>>;
 }) => {
@@ -60,18 +60,18 @@ export const AppointmentForm = ({
 
     let status;
     switch (type) {
-      case "schedule":
-        status = "scheduled";
+      case "confirmar":
+        status = "agendado";
         break;
-      case "cancel":
-        status = "cancelled";
+      case "cancelar":
+        status = "cancelado";
         break;
       default:
-        status = "pending";
+        status = "pendiente";
     }
 
     try {
-      if (type === "create" && patientId) {
+      if (type === "crear" && patientId) {
         const appointment = {
           userId,
           patient: patientId,
@@ -118,10 +118,10 @@ export const AppointmentForm = ({
 
   let buttonLabel;
   switch (type) {
-    case "cancel":
+    case "cancelar":
       buttonLabel = "Cancelar turno";
       break;
-    case "schedule":
+    case "confirmar":
       buttonLabel = "Agendar turno";
       break;
     default:
@@ -131,7 +131,7 @@ export const AppointmentForm = ({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 space-y-6">
-        {type === "create" && (
+        {type === "crear" && (
           <section className="mb-12 space-y-4">
             <h1 className="header">Nuevo turno</h1>
             <p className="text-dark-700">
@@ -140,7 +140,7 @@ export const AppointmentForm = ({
           </section>
         )}
 
-        {type !== "cancel" && (
+        {type !== "cancelar" && (
           <>
             <CustomFormField
               fieldType={FormFieldType.SELECT}
@@ -175,7 +175,7 @@ export const AppointmentForm = ({
             />
 
             <div
-              className={`flex flex-col gap-6  ${type === "create" && "xl:flex-row"}`}
+              className={`flex flex-col gap-6  ${type === "crear" && "xl:flex-row"}`}
             >
               <CustomFormField
                 fieldType={FormFieldType.TEXTAREA}
@@ -183,7 +183,7 @@ export const AppointmentForm = ({
                 name="reason"
                 label="Motivo de consulta"
                 placeholder="Ej: chequeo de rutina"
-                disabled={type === "schedule"}
+                disabled={type === "confirmar"}
               />
 
               <CustomFormField
@@ -192,13 +192,13 @@ export const AppointmentForm = ({
                 name="note"
                 label="Comentarios (opcional)"
                 placeholder="Ej: Prefiero turno de tarde de ser posible"
-                disabled={type === "schedule"}
+                disabled={type === "confirmar"}
               />
             </div>
           </>
         )}
 
-        {type === "cancel" && (
+        {type === "cancelar" && (
           <CustomFormField
             fieldType={FormFieldType.TEXTAREA}
             control={form.control}
@@ -210,7 +210,7 @@ export const AppointmentForm = ({
 
         <SubmitButton
           isLoading={isLoading}
-          className={`${type === "cancel" ? "shad-danger-btn" : "shad-primary-btn"} w-full`}
+          className={`${type === "cancelar" ? "shad-danger-btn" : "shad-primary-btn"} w-full`}
         >
           {buttonLabel}
         </SubmitButton>

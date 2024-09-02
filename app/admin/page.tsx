@@ -33,19 +33,19 @@ const AdminPage = async () => {
 
         <section className="admin-stat">
           <StatCard
-            type="appointments"
+            type="turnos"
             count={appointments.scheduledCount}
             label="Citas agendadas"
             icon={"/assets/icons/appointments.svg"}
           />
           <StatCard
-            type="pending"
+            type="pendiente"
             count={appointments.pendingCount}
             label="Citas pendientes"
             icon={"/assets/icons/pending.svg"}
           />
           <StatCard
-            type="cancelled"
+            type="cancelado"
             count={appointments.cancelledCount}
             label="Citas canceladas"
             icon={"/assets/icons/cancelled.svg"}

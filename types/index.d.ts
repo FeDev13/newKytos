@@ -5,8 +5,8 @@ declare type SearchParamProps = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-declare type Gender = "Male" | "Female" | "Other";
-declare type Status = "pending" | "scheduled" | "cancelled";
+declare type Gender = "hombre" | "mujer" | "otro";
+declare type Status = "pendiente" | "agendado" | "cancelado";
 
 declare interface CreateUserParams {
   name: string;
@@ -35,7 +35,7 @@ declare interface RegisterUserParams extends CreateUserParams {
   identificationType: string | undefined;
   identificationNumber: string | undefined;
   identificationDocument: FormData | undefined;
-  privacyConsent: boolean;
+  
 }
 
 declare type CreateAppointmentParams = {

@@ -2,7 +2,7 @@ import clsx from "clsx";
 import Image from "next/image";
 
 type StatCardProps = {
-  type: "appointments" | "pending" | "cancelled";
+  type: "turnos" | "pendiente" | "cancelado";
   count: number;
   label: string;
   icon: string;
@@ -12,9 +12,9 @@ export const StatCard = ({ count = 0, label, icon, type }: StatCardProps) => {
   return (
     <div
       className={clsx("stat-card", {
-        "bg-appointments": type === "appointments",
-        "bg-pending": type === "pending",
-        "bg-cancelled": type === "cancelled",
+        "bg-appointments": type === "turnos",
+        "bg-pending": type === "pendiente",
+        "bg-cancelled": type === "cancelado",
       })}
     >
       <div className="flex items-center gap-4">

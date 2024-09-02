@@ -68,12 +68,7 @@ export const PatientFormValidation = z.object({
     .refine((value) => value === true, {
       message: "Debe consentir brindar su información personal para proceder",
     }),
-  privacyConsent: z
-    .boolean()
-    .default(false)
-    .refine((value) => value === true, {
-      message: "Debe consentir la política de privacidad para proceder",
-    }),
+  
 });
 
 export const CreateAppointmentSchema = z.object({
