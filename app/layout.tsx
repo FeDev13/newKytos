@@ -12,11 +12,11 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "CarePulse",
+  title: "Kytos Salud",
   description:
-    "A healthcare patient management System designed to streamline patient registration, appointment scheduling, and medical records management for healthcare providers.",
+    "Aplicacion web destinada a la gestion de pacientes.",
   icons: {
-    icon: "/assets/icons/logo-icon.svg",
+    icon:"/assets/icons/Logo kytos_page-0001.jpg",
   },
 };
 
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
         className={cn(
           "min-h-screen bg-dark-300 font-sans antialiased",
